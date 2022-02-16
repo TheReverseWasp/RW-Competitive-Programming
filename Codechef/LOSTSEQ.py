@@ -1,0 +1,9 @@
+tc = int(input())
+while tc:
+    tc -= 1
+    n = int(input())
+    b = list(map(int,input().split()))
+    if sum(b) % 2 == 0:
+        print("YES")
+    else:
+        print("NO")
