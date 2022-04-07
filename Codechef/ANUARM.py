@@ -5,17 +5,15 @@ while t:
     t-=1
     n, m =map(int, input().split())
     a = list(map(int, input().split()))
-    ans = np.ones(n) * -1
-    s = set()
-    while len(s) < n:
-        temp_s = set()
-        for elem in a:
-            if not elem in s:
-                ans[elem] = m - 1
-                s.add(elem)
-                temp_s.add(max(0, elem - 1))
-                temp_s.add(min(n - 1, elem + 1))
-        a = list(temp_s)
-        m += 1
-    for elem in ans:
-        print(int(elem), end = " ")
+    
+    minmax =[1000000, -1]
+
+    for soldier in a:
+        if soldier > minmax[1]:
+            minmax[1] = soldier
+        if soldier < minmax[0]:
+            minmax[0] = soldier
+
+    for i in range(n):
+        print(max(abs(minmax[0] - i), abs(minmax[1] - i)), sep=" ")
+    print()

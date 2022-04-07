@@ -30,10 +30,10 @@ int main() {
         ll n;
         cin >> n;
         if (n <= 2){
-            cout << 1 << endl;
+            cout << 1 << "\n";
         }
         else {
-            cout << 1 + (n-2)*(n-1) << endl;
+            cout << 1 + (n-2)*(n-1) << "\n";
         }
     }
 }
