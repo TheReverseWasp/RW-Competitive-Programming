@@ -1,29 +1,56 @@
 from copy import copy
 
-def is_empty(a):
-    for i in range(len(a)):
-        if a[i]!= 0:
+def is_lower(elem1, elem2):
+    if len(elem1) < len(elem2):
+        return True
+    if len(elem1) == len(elem2):
+        return elem1 <= elem2
+    else:
+        return False
+    
+def decompose(s):
+    ans = [c for c in s]
+    return ans
+
+def is_sorted(elems):
+    for i in range(len(elems) - 1):
+        if not is_lower(elems[i], elems[i + 1]):
             return False
     return True
+
+def is_possible(elems):
+    i = 0
+    has_descompose = False
+    while i < len(elems) - 1:
+        if is_lower(elems[i], elems[i + 1]):
+            i += 1
+            pass
+        else:
+            if len(elems[i]) == 1:
+                return "NO"
+            else:
+                has_descompose = True
+                temp = list()
+                for elem in elems[:i]:
+                    temp.append(elem)
+                for elem in decompose(elems[i]):
+                    temp.append(elem)
+                for elem in elems[i+1:]:
+                    temp.append(elem)
+                elems = temp                  
+    if is_sorted(elems):
+        return "YES"
+    else:
+        if has_descompose:
+            return is_possible(elems)
+        return "NO"
+
+
 t = int(input())
 while t:
     t-=1
     n = int(input())
-    a = list(map(int, input().split()))
-    while not is_empty(a):
-        op = False
-        for i in range(n - 2):
-            if a[i] >= a[i+1] // 2 and a[i+1] // 2 <= a[i+2] and a[i] > 0 and a[i+1] > 1 and a[i+2] > 0:
-                temp = min([a[i], a[i+2], a[i+1]//2])
-                a[i] -= temp
-                a[i + 1] -= temp * 2
-                a[i + 2] -= temp
-                op = True
-                break
-        if is_empty(a):
-            break
-        if not op:
-            print("NO")
-            break
-    if is_empty(a):
-        print("YES")
+    a = input()
+    a = list(a.split())
+
+    print(is_possible(a))

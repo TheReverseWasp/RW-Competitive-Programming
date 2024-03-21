@@ -1,13 +1,13 @@
 t = int(input())
+l = ["A", "B"]
 while t:
-    n, m, k = map(int, input().split())
-    b = list(map(int, input().split()))
-    c = list(map(int, input().split()))
-    ans = 0
-    for elem1 in b:
-        for elem2 in c:
-            if elem1 + elem2 <= k:
-                ans += 1
-
-    print(ans)
     t-=1
+    n = int(input())
+    if n % 2 == 1:
+        print("NO")
+    else:
+        print("YES")
+        for i in range(n // 2):
+            pos = i % 2
+            print(l[pos], l[pos], sep="", end="")
+        print()
