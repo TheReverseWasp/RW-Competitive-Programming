@@ -28,18 +28,18 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
-#define ll long long
+#define ll long long int
 #define mp make_pair
 #define f first
 #define s second
 #define pb push_back
 
 void setIO(string s) {
-	freopen((s + ".txt").c_str(), "r", stdin);
-	freopen((s + "_out.txt").c_str(), "w", stdout);
+    freopen((s + ".txt").c_str(), "r", stdin);
+    freopen((s + "_out.txt").c_str(), "w", stdout);
 }
 
 int main() {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 }
