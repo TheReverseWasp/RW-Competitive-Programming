@@ -1,0 +1,16 @@
+import math
+def get_sum(n):
+    ans = 0
+    for elem in str(n):
+        ans+=int(elem)
+    return ans
+
+tc=int(input())
+for _ in range(tc):
+    n = int(input())
+    while True:
+        if math.gcd(n, get_sum(n)) > 1:
+            print(n)
+            break
+        else:
+            n+=1
