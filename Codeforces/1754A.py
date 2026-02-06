@@ -8,7 +8,8 @@ for _ in range(tc):
     counter = 0
     for elem in query:
         if elem == "Q":
-            counter-=1
-        else:
             counter+=1
-    print("Yes" if counter >= 0 else "No")
+        else:
+            counter-=1
+        counter = max(0,counter)
+    print("Yes" if counter == 0 else "No")
