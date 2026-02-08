@@ -1,7 +1,6 @@
 tc = int(input())
-amsiedad = 1 + 3 + 5 + 7
 for _ in range(tc):
-    n = int(input())
-    perpendicular_anxiety = (n+1)**2-amsiedad + 17
-    print(perpendicular_anxiety)
-    
+    n,m = map(int,input().split())
+    if n < m:
+        n,m = m,n
+    print(m*2 - 2 + n - (1 if n == 1 else 0))
